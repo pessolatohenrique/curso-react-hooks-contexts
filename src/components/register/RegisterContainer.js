@@ -4,17 +4,23 @@ import FormLogin from "./FormLogin";
 import FormAddress from "./FormAddress";
 
 function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
-  return (
-    <>
-      <FormLogin />
-      <FormRegister
-        onRegister={onRegister}
-        onValidateCpf={onValidateCpf}
-        onValidateRequired={onValidateRequired}
-      />
-      <FormAddress />
-    </>
-  );
+  const [step, setStep] = useState(0);
+
+  function next() {
+    setStep(step + 1);
+  }
+
+  const forms = [
+    <FormLogin onRegister={next} onValidateRequired={onValidateRequired} />,
+    <FormRegister
+      onRegister={next}
+      onValidateCpf={onValidateCpf}
+      onValidateRequired={onValidateRequired}
+    />,
+    <FormAddress onRegister={onRegister} />,
+  ];
+
+  return <>{forms[step]}</>;
 }
 
 export default RegisterContainer;

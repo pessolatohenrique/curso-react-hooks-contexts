@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Grid } from "@material-ui/core";
 
-function FormAdress() {
+function FormAdress({ onRegister }) {
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState("");
   const [number, setNumber] = useState("");
@@ -10,7 +10,12 @@ function FormAdress() {
   const [city, setCity] = useState("");
 
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        onRegister();
+      }}
+    >
       <TextField
         id="cep"
         label="CEP"
