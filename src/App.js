@@ -1,5 +1,5 @@
 import { Container, Typography } from "@material-ui/core";
-import FormRegister from "./components/FormRegister";
+import RegisterContainer from "./components/register/RegisterContainer";
 import "@fontsource/roboto";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -48,7 +48,7 @@ function App() {
       <Typography component="h1" variant="h3" align="center" color="primary">
         Cadastre-se
       </Typography>
-      <FormRegister
+      <RegisterContainer
         onRegister={register}
         onValidateCpf={validateCpf}
         onValidateRequired={validateFieldRequired}
