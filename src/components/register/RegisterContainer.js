@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Stepper, Step, StepLabel } from "@material-ui/core";
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
 import FormAddress from "./FormAddress";
@@ -22,6 +22,8 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
     <Typography variant="h5">Obrigado por se cadastrar!</Typography>,
   ];
 
+  const steps = ["Login", "Registre-se", "Endereço", "Finalização"];
+
   useEffect(() => {
     const formsLength = forms.length - 1;
     if (step === formsLength) {
@@ -39,7 +41,18 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
     setStep(step + 1);
   }
 
-  return <>{forms[step]}</>;
+  return (
+    <>
+      <Stepper activeStep={step}>
+        {[...steps].map((item, key) => (
+          <Step key={key}>
+            <StepLabel>{item}</StepLabel>
+          </Step>
+        ))}
+      </Stepper>
+      {forms[step]}
+    </>
+  );
 }
 
 export default RegisterContainer;
