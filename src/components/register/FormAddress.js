@@ -13,7 +13,7 @@ function FormAdress({ onRegister }) {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onRegister();
+        onRegister({ cep, address, number, complement, state, city });
       }}
     >
       <TextField

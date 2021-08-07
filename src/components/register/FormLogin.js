@@ -13,7 +13,7 @@ function FormLogin({ onRegister, onValidateRequired }) {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onRegister();
+        onRegister({ email, password });
       }}
     >
       <TextField
