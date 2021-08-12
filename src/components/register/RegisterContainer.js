@@ -3,6 +3,8 @@ import { Typography, Stepper, Step, StepLabel } from "@material-ui/core";
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
 import FormAddress from "./FormAddress";
+import { validateRequired } from "../../utils/validation";
+import { REQUIRED_MESSAGE } from "../../utils/messages";
 
 function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
   const [step, setStep] = useState(0);
@@ -11,7 +13,13 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
   const forms = [
     <FormLogin
       onRegister={colectData}
-      onValidateRequired={onValidateRequired}
+      validations={{
+        email: { functionRef: validateRequired, messageRef: REQUIRED_MESSAGE },
+        password: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+      }}
     />,
     <FormRegister
       onRegister={colectData}

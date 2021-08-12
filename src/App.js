@@ -2,6 +2,8 @@ import { Container, Typography } from "@material-ui/core";
 import RegisterContainer from "./components/register/RegisterContainer";
 import "@fontsource/roboto";
 import { makeStyles } from "@material-ui/core/styles";
+// import { validateCpf, validateFieldRequired } from "./utils/validation";
+// usar objeto padrão com { valid e message }
 
 const useStyles = makeStyles((theme) => ({
   container: {
