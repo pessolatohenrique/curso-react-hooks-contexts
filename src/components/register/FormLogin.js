@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
+import { verifyError } from "../../utils/validation";
 
 function FormLogin({ onRegister, validations = [] }) {
   const [email, setEmail] = useState("");
@@ -8,24 +9,6 @@ function FormLogin({ onRegister, validations = [] }) {
     email: { valid: true, message: "" },
     password: { valid: true, message: "" },
   });
-
-  function verifyError(event) {
-    const validation = validations[event.target.id];
-
-    if (!validation) return;
-
-    const validationFunction = validation.functionRef;
-    const validationResult = validationFunction(event.target.value);
-    const validationMessage = validation.messageRef;
-    const newErrors = { ...errors };
-
-    newErrors[event.target.id] = {
-      valid: validationResult,
-      message: validationResult ? "" : validationMessage,
-    };
-
-    setErrors(newErrors);
-  }
 
   return (
     <form
@@ -45,7 +28,10 @@ function FormLogin({ onRegister, validations = [] }) {
         helperText={errors.email.message}
         value={email}
         onChange={(event) => setEmail(event.target.value)}
-        onBlur={(event) => verifyError(event)}
+        onBlur={(event) => {
+          const newErrors = verifyError(event, validations, errors);
+          setErrors(newErrors);
+        }}
       />
 
       <TextField
@@ -59,7 +45,10 @@ function FormLogin({ onRegister, validations = [] }) {
         helperText={errors.password.message}
         value={password}
         onChange={(event) => setPassword(event.target.value)}
-        onBlur={(event) => verifyError(event)}
+        onBlur={(event) => {
+          const newErrors = verifyError(event, validations, errors);
+          setErrors(newErrors);
+        }}
       />
       <br />
       <br />

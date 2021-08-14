@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { TextField, Button, FormControlLabel, Switch } from "@material-ui/core";
+import { verifyError } from "../../utils/validation";
 import { ThemeContext } from "../../App";
 
-function FormRegister({ onRegister, onValidateCpf, onValidateRequired }) {
+function FormRegister({ onRegister, validations }) {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [cpf, setCpf] = useState("");
@@ -36,12 +37,8 @@ function FormRegister({ onRegister, onValidateCpf, onValidateRequired }) {
               value={name}
               onChange={(event) => setName(event.target.value)}
               onBlur={(event) => {
-                const validate = onValidateRequired(
-                  event.target.id,
-                  event.target.value,
-                  errors
-                );
-                setErrors(validate);
+                const newErrors = verifyError(event, validations, errors);
+                setErrors(newErrors);
               }}
             />
             <TextField
@@ -55,12 +52,8 @@ function FormRegister({ onRegister, onValidateCpf, onValidateRequired }) {
               value={lastname}
               onChange={(event) => setLastname(event.target.value)}
               onBlur={(event) => {
-                const validate = onValidateRequired(
-                  event.target.id,
-                  event.target.value,
-                  errors
-                );
-                setErrors(validate);
+                const newErrors = verifyError(event, validations, errors);
+                setErrors(newErrors);
               }}
             />
             <TextField
@@ -74,8 +67,8 @@ function FormRegister({ onRegister, onValidateCpf, onValidateRequired }) {
               value={cpf}
               onChange={(event) => setCpf(event.target.value)}
               onBlur={(event) => {
-                const validate = onValidateCpf(cpf, errors);
-                setErrors(validate);
+                const newErrors = verifyError(event, validations, errors);
+                setErrors(newErrors);
               }}
             />
             <FormControlLabel

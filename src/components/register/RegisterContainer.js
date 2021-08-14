@@ -14,7 +14,7 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
   const forms = [
     <ThemeContext.Consumer>
       {(theme) => {
-        console.log("ACTUAL THEME", theme);
+        console.log("theme context", theme);
         return (
           <FormLogin
             onRegister={colectData}
@@ -34,8 +34,20 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
     </ThemeContext.Consumer>,
     <FormRegister
       onRegister={colectData}
-      onValidateCpf={onValidateCpf}
-      onValidateRequired={onValidateRequired}
+      validations={{
+        name: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        lastname: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        cpf: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+      }}
     />,
     <FormAddress onRegister={colectData} />,
     <Typography variant="h5">Obrigado por se cadastrar!</Typography>,
