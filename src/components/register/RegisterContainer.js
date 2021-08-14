@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Stepper, Step, StepLabel } from "@material-ui/core";
+import { ThemeContext } from "../../App";
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
 import FormAddress from "./FormAddress";
@@ -11,16 +12,26 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
   const [formData, setFormData] = useState({});
 
   const forms = [
-    <FormLogin
-      onRegister={colectData}
-      validations={{
-        email: { functionRef: validateRequired, messageRef: REQUIRED_MESSAGE },
-        password: {
-          functionRef: validateRequired,
-          messageRef: REQUIRED_MESSAGE,
-        },
+    <ThemeContext.Consumer>
+      {(theme) => {
+        console.log("ACTUAL THEME", theme);
+        return (
+          <FormLogin
+            onRegister={colectData}
+            validations={{
+              email: {
+                functionRef: validateRequired,
+                messageRef: REQUIRED_MESSAGE,
+              },
+              password: {
+                functionRef: validateRequired,
+                messageRef: REQUIRED_MESSAGE,
+              },
+            }}
+          />
+        );
       }}
-    />,
+    </ThemeContext.Consumer>,
     <FormRegister
       onRegister={colectData}
       onValidateCpf={onValidateCpf}

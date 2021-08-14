@@ -1,9 +1,12 @@
+import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import RegisterContainer from "./components/register/RegisterContainer";
 import "@fontsource/roboto";
 import { makeStyles } from "@material-ui/core/styles";
 // import { validateCpf, validateFieldRequired } from "./utils/validation";
 // usar objeto padrão com { valid e message }
+
+export const ThemeContext = React.createContext("dark");
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -50,11 +53,13 @@ function App() {
       <Typography component="h1" variant="h3" align="center" color="primary">
         Cadastre-se
       </Typography>
-      <RegisterContainer
-        onRegister={register}
-        onValidateCpf={validateCpf}
-        onValidateRequired={validateFieldRequired}
-      />
+      <ThemeContext.Provider value={"dark"}>
+        <RegisterContainer
+          onRegister={register}
+          onValidateCpf={validateCpf}
+          onValidateRequired={validateFieldRequired}
+        />
+      </ThemeContext.Provider>
     </Container>
   );
 }
