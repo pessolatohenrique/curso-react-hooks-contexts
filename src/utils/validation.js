@@ -26,8 +26,6 @@ export const verifyError = (event, validations, errors) => {
 
   if (!validation) return errors;
 
-  console.log("verify error from utils!");
-
   const validationFunction = validation.functionRef;
   const validationResult = validationFunction(event.target.value);
   const validationMessage = validation.messageRef;

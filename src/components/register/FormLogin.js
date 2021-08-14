@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
 import { verifyError } from "../../utils/validation";
+import useErrors from "../../hooks/useErrors";
 
 function FormLogin({ onRegister, validations = [] }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({
-    email: { valid: true, message: "" },
-    password: { valid: true, message: "" },
-  });
+  const [errors, validateFields, canSubmit] = useErrors(validations);
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onRegister({ email, password });
+
+        if (canSubmit()) {
+          onRegister({ email, password });
+        }
       }}
     >
       <TextField
@@ -28,10 +29,7 @@ function FormLogin({ onRegister, validations = [] }) {
         helperText={errors.email.message}
         value={email}
         onChange={(event) => setEmail(event.target.value)}
-        onBlur={(event) => {
-          const newErrors = verifyError(event, validations, errors);
-          setErrors(newErrors);
-        }}
+        onBlur={validateFields}
       />
 
       <TextField
@@ -45,10 +43,7 @@ function FormLogin({ onRegister, validations = [] }) {
         helperText={errors.password.message}
         value={password}
         onChange={(event) => setPassword(event.target.value)}
-        onBlur={(event) => {
-          const newErrors = verifyError(event, validations, errors);
-          setErrors(newErrors);
-        }}
+        onBlur={validateFields}
       />
       <br />
       <br />
