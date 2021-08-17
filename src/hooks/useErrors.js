@@ -19,8 +19,7 @@ function useErrors(validations) {
 
     if (!validation) return errors;
 
-    const validationFunction = validation.functionRef;
-    const validationResult = validationFunction(event.target.value);
+    const validationResult = validation.functionRef(event.target.value);
     const validationMessage = validation.messageRef;
     const newErrors = { ...errors };
 
@@ -32,14 +31,26 @@ function useErrors(validations) {
     setErrors(newErrors);
   }
 
-  function canSubmit() {
-    for (const key in errors) {
-      console.log("error", errors[key]);
-      return true;
+  function canSubmit(fields) {
+    const overviewErrors = initializeErrors(validations);
+
+    for (const key in validations) {
+      const valueField = fields[key];
+      const validationResult = validations[key].functionRef(valueField);
+      const validationMessage = validations[key].messageRef;
+
+      overviewErrors[key] = {
+        valid: validationResult,
+        message: validationResult ? "" : validationMessage,
+      };
+      setErrors(overviewErrors);
     }
-    console.log("errors", errors);
-    const everyValid = errors.every((item) => item.valid);
-    return everyValid;
+
+    for (const key in overviewErrors) {
+      if (!overviewErrors[key].valid) return false;
+    }
+
+    return true;
   }
 
   return [errors, validateFields, canSubmit];

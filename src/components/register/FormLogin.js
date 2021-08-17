@@ -13,7 +13,7 @@ function FormLogin({ onRegister, validations = [] }) {
       onSubmit={(event) => {
         event.preventDefault();
 
-        if (canSubmit()) {
+        if (canSubmit({ email, password })) {
           onRegister({ email, password });
         }
       }}
