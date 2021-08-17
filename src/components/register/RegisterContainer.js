@@ -4,7 +4,7 @@ import { ThemeContext } from "../../App";
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
 import FormAddress from "./FormAddress";
-import { validateRequired } from "../../utils/validation";
+import { validateRequired, noValidate } from "../../utils/validation";
 import { REQUIRED_MESSAGE } from "../../utils/messages";
 
 function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
@@ -49,7 +49,35 @@ function RegisterContainer({ onRegister, onValidateCpf, onValidateRequired }) {
         },
       }}
     />,
-    <FormAddress onRegister={colectData} />,
+    <FormAddress
+      onRegister={colectData}
+      validations={{
+        cep: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        address: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        number: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        complement: {
+          functionRef: noValidate,
+          messageRef: "",
+        },
+        city: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+        state: {
+          functionRef: validateRequired,
+          messageRef: REQUIRED_MESSAGE,
+        },
+      }}
+    />,
     <Typography variant="h5">Obrigado por se cadastrar!</Typography>,
   ];
 

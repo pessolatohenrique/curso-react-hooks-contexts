@@ -14,6 +14,8 @@ export const validateRequired = (value) => {
   return true;
 };
 
+export const noValidate = () => true;
+
 /**
  * verify error on field blur
  * @param {*} event

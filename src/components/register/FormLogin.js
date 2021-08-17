@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { TextField, Button } from "@material-ui/core";
-import { verifyError } from "../../utils/validation";
 import useErrors from "../../hooks/useErrors";
 
 function FormLogin({ onRegister, validations = [] }) {

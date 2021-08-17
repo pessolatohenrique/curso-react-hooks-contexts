@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { TextField, Button, Grid } from "@material-ui/core";
+import useErrors from "../../hooks/useErrors";
 
-function FormAdress({ onRegister }) {
+function FormAdress({ onRegister, validations }) {
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState("");
   const [number, setNumber] = useState("");
   const [complement, setComplement] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
+  const [errors, validateFields, canSubmit] = useErrors(validations);
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        onRegister({ cep, address, number, complement, state, city });
+
+        if (canSubmit({ cep, address, number, complement, state, city })) {
+          onRegister({ cep, address, number, complement, state, city });
+        }
       }}
     >
       <TextField
@@ -22,8 +27,11 @@ function FormAdress({ onRegister }) {
         variant="outlined"
         fullWidth
         margin="normal"
+        error={!errors.cep.valid}
+        helperText={errors.cep.message}
         value={cep}
         onChange={(event) => setCep(event.target.value)}
+        onBlur={validateFields}
       />
 
       <TextField
@@ -32,8 +40,11 @@ function FormAdress({ onRegister }) {
         variant="outlined"
         fullWidth
         margin="normal"
+        error={!errors.address.valid}
+        helperText={errors.address.message}
         value={address}
         onChange={(event) => setAddress(event.target.value)}
+        onBlur={validateFields}
       />
 
       <Grid container spacing={3}>
@@ -44,8 +55,11 @@ function FormAdress({ onRegister }) {
             variant="outlined"
             fullWidth
             margin="normal"
+            error={!errors.number.valid}
+            helperText={errors.number.message}
             value={number}
             onChange={(event) => setNumber(event.target.value)}
+            onBlur={validateFields}
           />
         </Grid>
 
@@ -56,8 +70,11 @@ function FormAdress({ onRegister }) {
             variant="outlined"
             fullWidth
             margin="normal"
+            error={!errors.complement.valid}
+            helperText={errors.complement.message}
             value={complement}
             onChange={(event) => setComplement(event.target.value)}
+            onBlur={validateFields}
           />
         </Grid>
       </Grid>
@@ -70,8 +87,11 @@ function FormAdress({ onRegister }) {
             variant="outlined"
             fullWidth
             // margin="normal"
+            error={!errors.state.valid}
+            helperText={errors.state.message}
             value={state}
             onChange={(event) => setState(event.target.value)}
+            onBlur={validateFields}
           />
         </Grid>
 
@@ -82,8 +102,11 @@ function FormAdress({ onRegister }) {
             variant="outlined"
             fullWidth
             // margin="normal"
+            error={!errors.city.valid}
+            helperText={errors.city.message}
             value={city}
             onChange={(event) => setCity(event.target.value)}
+            onBlur={validateFields}
           />
         </Grid>
       </Grid>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, FormControlLabel, Switch } from "@material-ui/core";
 import { verifyError } from "../../utils/validation";
+import useErrors from "../../hooks/useErrors";
 import { ThemeContext } from "../../App";
 
 function FormRegister({ onRegister, validations }) {
@@ -9,11 +10,7 @@ function FormRegister({ onRegister, validations }) {
   const [cpf, setCpf] = useState("");
   const [sales, setSales] = useState(true);
   const [news, setNews] = useState(true);
-  const [errors, setErrors] = useState({
-    name: { valid: true, message: "" },
-    lastname: { valid: true, message: "" },
-    cpf: { valid: true, message: "" },
-  });
+  const [errors, validateFields, canSubmit] = useErrors(validations);
 
   return (
     <ThemeContext.Consumer>
@@ -23,7 +20,10 @@ function FormRegister({ onRegister, validations }) {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              onRegister({ name, lastname, cpf, sales, news });
+
+              if (canSubmit({ name, lastname, cpf })) {
+                onRegister({ name, lastname, cpf });
+              }
             }}
           >
             <TextField
@@ -36,10 +36,7 @@ function FormRegister({ onRegister, validations }) {
               helperText={errors.name.message}
               value={name}
               onChange={(event) => setName(event.target.value)}
-              onBlur={(event) => {
-                const newErrors = verifyError(event, validations, errors);
-                setErrors(newErrors);
-              }}
+              onBlur={validateFields}
             />
             <TextField
               id="lastname"
@@ -51,10 +48,7 @@ function FormRegister({ onRegister, validations }) {
               helperText={errors.lastname.message}
               value={lastname}
               onChange={(event) => setLastname(event.target.value)}
-              onBlur={(event) => {
-                const newErrors = verifyError(event, validations, errors);
-                setErrors(newErrors);
-              }}
+              onBlur={validateFields}
             />
             <TextField
               id="cpf"
@@ -66,10 +60,7 @@ function FormRegister({ onRegister, validations }) {
               helperText={errors.cpf.message}
               value={cpf}
               onChange={(event) => setCpf(event.target.value)}
-              onBlur={(event) => {
-                const newErrors = verifyError(event, validations, errors);
-                setErrors(newErrors);
-              }}
+              onBlur={validateFields}
             />
             <FormControlLabel
               control={
