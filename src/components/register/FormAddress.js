@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { TextField, Button, Grid } from "@material-ui/core";
 import useErrors from "../../hooks/useErrors";
 
@@ -10,6 +11,14 @@ function FormAdress({ onRegister, validations }) {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [errors, validateFields, canSubmit] = useErrors(validations);
+
+  async function searchAddress(cep) {
+    const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+    const { logradouro, localidade, uf } = response.data;
+    setAddress(logradouro);
+    setCity(localidade);
+    setState(uf);
+  }
 
   return (
     <form
@@ -31,7 +40,10 @@ function FormAdress({ onRegister, validations }) {
         helperText={errors.cep.message}
         value={cep}
         onChange={(event) => setCep(event.target.value)}
-        onBlur={validateFields}
+        onBlur={(event) => {
+          validateFields(event);
+          searchAddress(event.target.value);
+        }}
       />
 
       <TextField
