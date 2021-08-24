@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Button, FormControlLabel, Switch } from "@material-ui/core";
-import { verifyError } from "../../utils/validation";
 import useErrors from "../../hooks/useErrors";
-import { ThemeContext } from "../../App";
+import { LoadContext } from "../../contexts/Contexts";
+import CustomLoader from "../../utils/CustomLoader";
 
 function FormRegister({ onRegister, validations }) {
   const [name, setName] = useState("");
@@ -13,9 +13,8 @@ function FormRegister({ onRegister, validations }) {
   const [errors, validateFields, canSubmit] = useErrors(validations);
 
   return (
-    <ThemeContext.Consumer>
-      {(theme) => {
-        console.log("theme register", theme);
+    <LoadContext.Consumer>
+      {(loading) => {
         return (
           <form
             onSubmit={(event) => {
@@ -26,6 +25,7 @@ function FormRegister({ onRegister, validations }) {
               }
             }}
           >
+            {loading && <CustomLoader isLoading={loading} />}
             <TextField
               id="name"
               label="Nome"
@@ -87,12 +87,12 @@ function FormRegister({ onRegister, validations }) {
             <br />
             <br />
             <Button type="submit" variant="contained" color="primary">
-              Salvar
+              Próximo
             </Button>
           </form>
         );
       }}
-    </ThemeContext.Consumer>
+    </LoadContext.Consumer>
   );
 }
 
