@@ -17,6 +17,7 @@ function FormRegister({ onRegister, validations }) {
       {(loading) => {
         return (
           <form
+            noValidate
             onSubmit={(event) => {
               event.preventDefault();
 
@@ -32,6 +33,7 @@ function FormRegister({ onRegister, validations }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["name"].required}
               error={!errors.name.valid}
               helperText={errors.name.message}
               value={name}
@@ -44,6 +46,7 @@ function FormRegister({ onRegister, validations }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["lastname"].required}
               error={!errors.lastname.valid}
               helperText={errors.lastname.message}
               value={lastname}

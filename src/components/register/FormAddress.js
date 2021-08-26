@@ -27,6 +27,7 @@ function FormAdress({ onRegister, validations }) {
       {(loading) => {
         return (
           <form
+            noValidate
             onSubmit={(event) => {
               event.preventDefault();
 
@@ -44,6 +45,7 @@ function FormAdress({ onRegister, validations }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["cep"].required}
               error={!errors.cep.valid}
               helperText={errors.cep.message}
               value={cep}
@@ -60,6 +62,7 @@ function FormAdress({ onRegister, validations }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["address"].required}
               error={!errors.address.valid}
               helperText={errors.address.message}
               value={address}
@@ -75,6 +78,7 @@ function FormAdress({ onRegister, validations }) {
                   variant="outlined"
                   fullWidth
                   margin="normal"
+                  required={validations["number"].required}
                   error={!errors.number.valid}
                   helperText={errors.number.message}
                   value={number}
@@ -90,6 +94,7 @@ function FormAdress({ onRegister, validations }) {
                   variant="outlined"
                   fullWidth
                   margin="normal"
+                  required={validations["complement"].required}
                   error={!errors.complement.valid}
                   helperText={errors.complement.message}
                   value={complement}
@@ -107,6 +112,7 @@ function FormAdress({ onRegister, validations }) {
                   variant="outlined"
                   fullWidth
                   // margin="normal"
+                  required={validations["state"].required}
                   error={!errors.state.valid}
                   helperText={errors.state.message}
                   value={state}
@@ -122,6 +128,7 @@ function FormAdress({ onRegister, validations }) {
                   variant="outlined"
                   fullWidth
                   // margin="normal"
+                  required={validations["city"].required}
                   error={!errors.city.valid}
                   helperText={errors.city.message}
                   value={city}

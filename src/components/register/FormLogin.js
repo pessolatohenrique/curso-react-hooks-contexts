@@ -14,6 +14,7 @@ function FormLogin({ onRegister, validations = [] }) {
       {(loading) => {
         return (
           <form
+            noValidate
             onSubmit={(event) => {
               event.preventDefault();
 
@@ -30,6 +31,7 @@ function FormLogin({ onRegister, validations = [] }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["email"].required}
               error={!errors.email.valid}
               helperText={errors.email.message}
               value={email}
@@ -44,6 +46,7 @@ function FormLogin({ onRegister, validations = [] }) {
               variant="outlined"
               fullWidth
               margin="normal"
+              required={validations["password"].required}
               error={!errors.password.valid}
               helperText={errors.password.message}
               value={password}

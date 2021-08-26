@@ -25,10 +25,12 @@ function RegisterContainer({ onRegister }) {
         onRegister={colectData}
         validations={{
           email: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           password: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
@@ -40,16 +42,18 @@ function RegisterContainer({ onRegister }) {
         onRegister={colectData}
         validations={{
           name: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           lastname: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           cpf: {
-            functionRef: validateRequired,
-            messageRef: REQUIRED_MESSAGE,
+            functionRef: noValidate,
+            messageRef: "",
           },
         }}
       />
@@ -59,14 +63,17 @@ function RegisterContainer({ onRegister }) {
         onRegister={colectData}
         validations={{
           cep: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           address: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           number: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
@@ -75,10 +82,12 @@ function RegisterContainer({ onRegister }) {
             messageRef: "",
           },
           city: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
           state: {
+            required: true,
             functionRef: validateRequired,
             messageRef: REQUIRED_MESSAGE,
           },
@@ -111,7 +120,7 @@ function RegisterContainer({ onRegister }) {
     setLoading(true);
 
     //condition and setTimeOut only to demostrate loading
-    if (updatedData.cpf) {
+    if (updatedData.lastname) {
       setTimeout(() => {
         setFormData(updatedData);
         setLoading(false);
