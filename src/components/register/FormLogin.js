@@ -25,6 +25,7 @@ function FormLogin({ onRegister, validations = [] }) {
           >
             {loading && <CustomLoader isLoading={loading} />}
             <TextField
+              data-testid="email"
               id="email"
               type="email"
               label="E-mail"
@@ -40,6 +41,7 @@ function FormLogin({ onRegister, validations = [] }) {
             />
 
             <TextField
+              data-testid="password"
               id="password"
               type="password"
               label="Senha"
