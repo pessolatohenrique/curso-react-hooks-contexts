@@ -143,7 +143,7 @@ function RegisterContainer({ onRegister }) {
     <>
       <Stepper activeStep={step}>
         {[...steps].map((item, key) => (
-          <Step key={key}>
+          <Step key={key} role="custom-step">
             <StepLabel>{item}</StepLabel>
           </Step>
         ))}
