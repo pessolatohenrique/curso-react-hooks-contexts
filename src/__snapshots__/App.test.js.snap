@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component should render the first component 1`] = `
+<div>
+  <div
+    class="MuiContainer-root makeStyles-container-1 MuiContainer-maxWidthMd"
+  >
+    <div
+      class="MuiPaper-root MuiCard-root MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <div
+        class="MuiCardContent-root"
+      >
+        <h1
+          class="MuiTypography-root MuiTypography-h3 MuiTypography-colorPrimary MuiTypography-alignCenter"
+        >
+          Cadastre-se
+        </h1>
+        <div
+          class="MuiPaper-root MuiStepper-root MuiStepper-horizontal MuiPaper-elevation0"
+        >
+          <div
+            class="MuiStep-root MuiStep-horizontal"
+          >
+            <span
+              class="MuiStepLabel-root MuiStepLabel-horizontal"
+            >
+              <span
+                class="MuiStepLabel-iconContainer"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiStepIcon-root MuiStepIcon-active"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                  />
+                  <text
+                    class="MuiStepIcon-text"
+                    text-anchor="middle"
+                    x="12"
+                    y="16"
+                  >
+                    1
+                  </text>
+                </svg>
+              </span>
+              <span
+                class="MuiStepLabel-labelContainer"
+              >
+                <span
+                  class="MuiTypography-root MuiStepLabel-label MuiStepLabel-active MuiTypography-body2 MuiTypography-displayBlock"
+                >
+                  Login
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled"
+          >
+            <span
+              class="MuiStepConnector-line MuiStepConnector-lineHorizontal"
+            />
+          </div>
+          <div
+            class="MuiStep-root MuiStep-horizontal"
+          >
+            <span
+              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled"
+            >
+              <span
+                class="MuiStepLabel-iconContainer"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiStepIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                  />
+                  <text
+                    class="MuiStepIcon-text"
+                    text-anchor="middle"
+                    x="12"
+                    y="16"
+                  >
+                    2
+                  </text>
+                </svg>
+              </span>
+              <span
+                class="MuiStepLabel-labelContainer"
+              >
+                <span
+                  class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                >
+                  Registre-se
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled"
+          >
+            <span
+              class="MuiStepConnector-line MuiStepConnector-lineHorizontal"
+            />
+          </div>
+          <div
+            class="MuiStep-root MuiStep-horizontal"
+          >
+            <span
+              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled"
+            >
+              <span
+                class="MuiStepLabel-iconContainer"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiStepIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                  />
+                  <text
+                    class="MuiStepIcon-text"
+                    text-anchor="middle"
+                    x="12"
+                    y="16"
+                  >
+                    3
+                  </text>
+                </svg>
+              </span>
+              <span
+                class="MuiStepLabel-labelContainer"
+              >
+                <span
+                  class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                >
+                  Endereço
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="MuiStepConnector-root MuiStepConnector-horizontal Mui-disabled"
+          >
+            <span
+              class="MuiStepConnector-line MuiStepConnector-lineHorizontal"
+            />
+          </div>
+          <div
+            class="MuiStep-root MuiStep-horizontal"
+          >
+            <span
+              class="MuiStepLabel-root MuiStepLabel-horizontal Mui-disabled"
+            >
+              <span
+                class="MuiStepLabel-iconContainer"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiStepIcon-root"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="12"
+                  />
+                  <text
+                    class="MuiStepIcon-text"
+                    text-anchor="middle"
+                    x="12"
+                    y="16"
+                  >
+                    4
+                  </text>
+                </svg>
+              </span>
+              <span
+                class="MuiStepLabel-labelContainer"
+              >
+                <span
+                  class="MuiTypography-root MuiStepLabel-label MuiTypography-body2 MuiTypography-displayBlock"
+                >
+                  Finalização
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+        <form
+          novalidate=""
+        >
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+              for="email"
+              id="email-label"
+            >
+              E-mail
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="email"
+                required=""
+                type="email"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-4"
+                >
+                  <span>
+                    E-mail
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+            
+          </div>
+          <div
+            class="MuiFormControl-root MuiTextField-root MuiFormControl-marginNormal MuiFormControl-fullWidth"
+          >
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined Mui-required Mui-required"
+              data-shrink="false"
+              for="password"
+              id="password-label"
+            >
+              Senha
+              <span
+                aria-hidden="true"
+                class="MuiFormLabel-asterisk MuiInputLabel-asterisk"
+              >
+                 
+                *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input MuiOutlinedInput-input"
+                id="password"
+                required=""
+                type="password"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="PrivateNotchedOutline-legendLabelled-4"
+                >
+                  <span>
+                    Senha
+                     *
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+            
+          </div>
+          <br />
+          <br />
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+            tabindex="0"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Próximo
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
