@@ -38,9 +38,12 @@ function FormAdress({ onRegister, validations }) {
               }
             }}
           >
-            {loading && <CustomLoader isLoading={loading} />}
+            {loading && (
+              <CustomLoader isLoading={loading} data-testid="loading" />
+            )}
             <TextField
               id="cep"
+              data-testid="cep"
               label="CEP"
               variant="outlined"
               fullWidth
@@ -58,6 +61,7 @@ function FormAdress({ onRegister, validations }) {
 
             <TextField
               id="address"
+              data-testid="address"
               label="Endereço"
               variant="outlined"
               fullWidth
@@ -108,6 +112,7 @@ function FormAdress({ onRegister, validations }) {
               <Grid item xs={6}>
                 <TextField
                   id="state"
+                  data-testid="state"
                   label="Estado"
                   variant="outlined"
                   fullWidth
@@ -124,6 +129,7 @@ function FormAdress({ onRegister, validations }) {
               <Grid item xs={6}>
                 <TextField
                   id="city"
+                  data-testid="city"
                   label="Cidade"
                   variant="outlined"
                   fullWidth

@@ -13,7 +13,11 @@ export default function CustomLoader({ isLoading }) {
   const classes = useStyles();
 
   return (
-    <Backdrop className={classes.backdrop} open={isLoading}>
+    <Backdrop
+      className={classes.backdrop}
+      open={isLoading}
+      data-testid="progress"
+    >
       <CircularProgress color="inherit" />
     </Backdrop>
   );

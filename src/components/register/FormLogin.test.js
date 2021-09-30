@@ -62,8 +62,6 @@ describe("FormLogin", () => {
 
     fireEvent.click(screen.getByRole("button"));
 
-    console.log("containerr", container.getElementsByClassName("Mui-Error"));
-
     expect(container.getElementsByClassName("Mui-Error"));
   });
 });

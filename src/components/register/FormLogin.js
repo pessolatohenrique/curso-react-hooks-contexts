@@ -23,7 +23,9 @@ function FormLogin({ onRegister, validations = [] }) {
               }
             }}
           >
-            {loading && <CustomLoader isLoading={loading} />}
+            {loading && (
+              <CustomLoader isLoading={loading} data-testid="loading" />
+            )}
             <TextField
               data-testid="email"
               id="email"
